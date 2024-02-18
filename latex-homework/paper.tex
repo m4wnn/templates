@@ -1,0 +1,87 @@
+\documentclass[letterpaper]{article}
+
+% No page numbers.
+\pagestyle{empty}
+
+% Change the margins to 1 inch all around.
+\usepackage[margin=1in]{geometry}
+
+% for setting the linespace (\setstretch)
+\usepackage{setspace}
+
+% distance between the columns (for the multicols)
+\setlength{\columnsep}{1cm}
+
+% for compactitem
+\usepackage{paralist}
+
+% Hyperlinks inside the document.
+\usepackage{hyperref}
+
+\usepackage{verbatim}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage{amssymb}
+\usepackage{parskip}
+\usepackage{breqn}
+\usepackage{booktabs}
+\usepackage{pdfpages}
+\usepackage{multirow}
+\usepackage{parskip}
+\usepackage{array}
+
+% Bibliography management.
+\usepackage[
+  sorting=none,
+  minbibnames=8,
+  maxbibnames=9,
+  block=space,
+  backend=biber
+]{biblatex}
+\bibliography{bibliography}
+
+% lorem ipsum generator.
+\usepackage{lipsum}
+
+%%%%% Extra math symbols %%%%%
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\plim}{plim}
+
+%%%%% Color definitions %%%%%
+\definecolor{lightgray}{gray}{-1.9}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%% Answer box environment %%%%%
+\newtcolorbox{myanswerbox}[1][]{
+  colback=white!, % Background color
+  colframe=white!25!black, % Bourder color
+  fonttitle=\bfseries, %  Font style of the title
+  title=#1, %  Title
+  arc=0mm, %  Rounded corners
+  #1
+}
+
+%%%%% Python code environment %%%%%
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    backgroundcolor=\color{lightgray}
+}
+
+%=============================
+\input{misc/title}
+%\newpage
+%=============================
+\input{sections/question-1}
+
+\end{document}
