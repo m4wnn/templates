@@ -303,3 +303,6 @@ TSWLatexianTemp*
 temp
 tmp
 *.pdf
+
+# jupyter-homework template
+jupyter-homework/merged.*
