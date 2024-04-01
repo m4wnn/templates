@@ -35,6 +35,7 @@
 \usepackage{multirow}
 \usepackage{parskip}
 \usepackage{array}
+\usepackage{amsthm} 
 
 % Bibliography management.
 \usepackage[
@@ -53,6 +54,14 @@
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\plim}{plim}
+
+%%%%% Extra Commands %%%%%
+\newcommand{\E}[1]{\mathbb{E}\left[#1\right]}
+\newcommand{\indicator}[1]{\mathbf{1}_{\{#1\}}}
+\newcommand{\prob}[1]{\mathbb{P}\left(#1\right)}
+\newcommand{\var}[1]{\text{Var}\left(#1\right)}
+\newcommand{\cov}[1]{\text{Cov}\left(#1\right)}
+\newcommand{\corr}[1]{\text{Corr}\left(#1\right)}
 
 %%%%% Color definitions %%%%%
 \definecolor{lightgray}{gray}{-1.9}
