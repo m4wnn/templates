@@ -37,15 +37,9 @@
 \usepackage{array}
 \usepackage{amsthm} 
 
-% Bibliography management.
-\usepackage[
-  sorting=none,
-  minbibnames=8,
-  maxbibnames=9,
-  block=space,
-  backend=biber
-]{biblatex}
-\bibliography{bibliography}
+% for the bibliography
+\usepackage[authordate, backend=biber, natbib=true]{biblatex-chicago}
+\addbibresource{bibliography.bib} % Link to your bibliography file
 
 % lorem ipsum generator.
 \usepackage{lipsum}
@@ -108,5 +102,15 @@
 %\newpage
 %=============================
 \input{sections/question-1}
+
+%\newpage
+%=============================
+%\section*{References}
+% the \nocite command leads to the whole bibliography
+% being displayed (without any \cite commands necessary).
+% remove this command in order to get the "normal" behavior.
+%\nocite{*}
+%\newpage
+%\printbibliography[heading=none]
 
 \end{document}
