@@ -56,6 +56,12 @@
 \newcommand{\var}[1]{\text{Var}\left(#1\right)}
 \newcommand{\cov}[1]{\text{Cov}\left(#1\right)}
 \newcommand{\corr}[1]{\text{Corr}\left(#1\right)}
+\newcommand{\convP}{\xrightarrow{\mathbb{P}}}
+\newcommand{\Exp}[1]{\exp\left(#1\right)}
+\renewcommand{\Vec}[1]{\mathbf{#1}}
+\newcommand{\Mat}[1]{\mathbb{#1}}
+\newcommand{\tr}[1]{\text{tr}\left(#1\right)}
+
 
 %%%%% Color definitions %%%%%
 \definecolor{lightgray}{gray}{-1.9}
@@ -65,6 +71,11 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
+
+%%%%% Extra Environments %%%%%
+\newtheorem*{claim*}{Claim}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{def*}{Definition}
 
 %%%%% Answer box environment %%%%%
 \newtcolorbox{myanswerbox}[1][]{
