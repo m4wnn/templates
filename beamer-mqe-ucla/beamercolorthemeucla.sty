@@ -1,0 +1,45 @@
+% !TEX root = example/example.tex
+
+\mode<presentation>
+
+% Command to print the HTML value of a color:
+\newcommand{\HTMLcolor}[1]{
+\extractcolorspec{#1}{\tempColor}
+\expandafter\convertcolorspec\tempColor{HTML}\tempColor
+\#\tempColor
+}
+
+
+% Define Colors:
+\definecolor{uclaBlue}{HTML}{3282be}
+%\definecolor{uclaBlueDark}{HTML}{2a70ae}
+\definecolor{uclaBlueDark}{HTML}{1d4f7a}
+
+\definecolor{uclaGold}{HTML}{feea00}
+\definecolor{uclaGoldDark}{HTML}{fdbc24}
+
+\colorlet{frameTitleColor}{uclaBlueDark}
+\colorlet{frameTitleBarColor}{uclaGoldDark}
+
+\colorlet{frameFootBarColor}{uclaGoldDark}
+\colorlet{frameFooterColor}{uclaBlueDark}
+
+\colorlet{titlePageHeaderColor}{uclaBlueDark}
+\colorlet{titlePageBarColor}{uclaGoldDark}
+\colorlet{titlePageFooterColor}{uclaBlueDark}
+
+
+
+% Assign Color Settings:
+\setbeamercolor*{title}{fg=uclaBlueDark}
+\setbeamercolor*{author}{fg=black}
+\setbeamercolor*{date}{fg=black}
+\setbeamercolor*{location}{fg=white}
+
+\setbeamercolor*{frametitle}{fg=white}
+\setbeamercolor*{slide number}{fg=white}
+
+\setbeamercolor*{item}{fg=uclaBlueDark}
+
+\mode
+<all>

@@ -1,0 +1,97 @@
+\documentclass{beamer}
+
+\usepackage{lipsum}
+
+% Load theme:
+\usetheme{ucla}
+
+
+% Set title page values:
+\title{A review of Death Star design flaws}
+\date{A long time ago}
+\author{Poe Dameron, Finn, and Rey}
+\location{3rd Conference on Death Star Destruction}
+
+
+% Turn on slide numbers:
+\showSlideNumber{}
+
+
+
+
+
+\begin{document}
+
+% Title frame:
+\insertTitleSlide
+
+%\begin{frame}
+%	\titlepage
+%\end{frame}
+
+
+\begin{frame} 
+\frametitle{A font sample} 
+\framesubtitle{\printcurrentfont} 
+
+Some sample text
+\begin{itemize}
+	\item A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+	\item a b c d e f g h i j k l m n o p q r s t u v w x y z
+	\item 1 2 3 4 5 6 7 8 9 0
+	\item Equations:
+	\begin{itemize}
+		\item $1 2 3 4 5 6 7 8 9 0$
+		\item $\alpha \beta \gamma \delta \omega \text{A} \text{B} \Gamma \Delta \Omega$
+		\item $\sin$, $\cos$, $\ln$, $+ - * /$
+	\end{itemize}
+	
+	\begin{equation}
+		d\left( x, y \right) = \sum_{n=1}^N d_n \, b_n \left( x, y \right)
+	\end{equation}
+\end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+\frametitle{Colors provided by this template}
+\centering
+\tikzstyle{colorSampleNodeTemplate} = [rectangle,
+                               align=center, 
+                               text width = 2.6cm,
+                               minimum height = 1.6cm,
+                               rounded corners=0.2cm]
+                               
+\newcommand{\colorSampleNode}[2]{
+    \node[colorSampleNodeTemplate, fill=#1, text=#2] 
+        {#1\\\HTMLcolor{#1}};
+        }
+
+\begin{tikzpicture}
+    \matrix[row sep=0.4cm, column sep=0.4cm] at (0,0)
+    {
+        \colorSampleNode{uclaBlue}{white} &
+        \colorSampleNode{uclaBlueDark}{white}
+        \\
+        \colorSampleNode{uclaGold}{black} &
+        \colorSampleNode{uclaGoldDark}{black}
+        \\
+    };
+\end{tikzpicture}
+
+\end{frame}
+
+
+
+\begin{frame} 
+\frametitle{Two line titles are created automatically\\or with a \textbackslash\textbackslash}  
+\lipsum[1]
+\end{frame}
+
+
+% Insert a last slide to hide backups
+\insertLastSlide
+
+\end{document}

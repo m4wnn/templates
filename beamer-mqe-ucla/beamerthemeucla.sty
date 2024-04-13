@@ -1,0 +1,174 @@
+% !TEX root = example/example.tex
+
+\mode<presentation>
+
+% Required packages:
+\RequirePackage{tikz}
+
+\usetikzlibrary{positioning}
+
+% Settings
+\useinnertheme{ucla}
+\useoutertheme{ucla}
+\usecolortheme{ucla}
+\usefonttheme{ucla}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded][shadow=false]  
+
+
+
+
+% Title page lengths:
+\newlength{\titlepageHeaderHeight}
+\setlength{\titlepageHeaderHeight}{3mm}
+
+\newlength{\titlepageFooterHeight}
+\setlength{\titlepageFooterHeight}{7mm}
+
+\newlength{\titlepageBarHeight}
+\setlength{\titlepageBarHeight}{1.5mm}
+
+
+
+
+% New commands:
+\newcommand{\printCommand}[1]{\texttt{\textbackslash#1}}
+
+\title{Set title with \printCommand{title\{\}}}
+\author{Set author with \printCommand{author\{\}}}
+\date{Set date with \printCommand{date\{\}}}
+
+\newcommand{\insertLocation}[0]{Set location with \printCommand{location\{\}}}
+\newcommand{\location}[1]{\renewcommand{\insertLocation}[0]{#1}}
+
+
+\setbeamersize{text margin left=.5cm, text margin right=.5cm} 
+
+% Title page
+\defbeamertemplate*{title page}{ucla}[1][]
+{
+	\begin{tikzpicture}
+	\useasboundingbox (0,0) rectangle (\textwidth,0.98\textheight);
+	
+	\node[draw=uclaBlueDark, very thick, rounded corners=10pt,
+		  align=center,
+		  text width=0.75\textwidth]
+		at (0.5\textwidth, 0.5\textheight)
+		{The command \texttt{\textbackslash titlepage} is not supported\\[1.0em]
+		Use the command \texttt{\textbackslash insertTitleSlide} instead.\\
+		This command does not go in a frame environment.};
+	
+	\end{tikzpicture}
+	
+}
+
+
+
+
+% Title page command and background:
+\newcommand{\insertTitleSlide}{
+{
+	% Remove the footline:
+	\setbeamertemplate{footline}{}
+	
+	% Change the background:
+	\setbeamertemplate{background}{
+	\begin{tikzpicture}
+		\useasboundingbox (0,0) rectangle (\the\paperwidth,\the\paperheight);
+		
+		% Header:
+		\fill[color=uclaBlueDark] 
+			(0,\paperheight-\titlepageHeaderHeight) rectangle (\paperwidth,\paperheight);
+			
+		% Footer:
+		\fill[color=uclaBlueDark] 
+						(0,0) rectangle (\paperwidth,\titlepageFooterHeight);
+						
+		%% Logo:
+		%\node[left] at (0.99\paperwidth,0.5\titlepageFooterHeight)
+			%{\includegraphics[height=0.75\titlepageFooterHeight]{logo-ucla-white}};
+		% Logo:
+		\node[left] at (0.99\paperwidth,0.5\titlepageFooterHeight)
+			{\includegraphics[height=1\titlepageFooterHeight]{MQELogo_White_Unboxed}};
+
+
+			
+		% Gold bar:
+		\node[fill=uclaGoldDark, 
+			  minimum width=\textwidth, 
+			  minimum height=\titlepageBarHeight,
+			  inner sep=0pt] 
+			(titleBar) at (0.5\paperwidth, 
+				0.5\paperheight+0.5\titlepageFooterHeight-0.5\titlepageHeaderHeight) {};
+			
+		% Title:
+		\node[align=left, 
+			  text width=\textwidth, 
+			  anchor=south, 
+			  above=0.0 of titleBar, 
+			  font={\usebeamercolor[fg]{title}\usebeamerfont{title}}] 
+			(title) {\inserttitle\par};
+			
+		% Author:
+		\node[align=left, 
+			  text width=\textwidth, 
+			  anchor=north, 
+			  below=0.0 of titleBar,
+			  font={\usebeamercolor[fg]{author}\usebeamerfont{author}}] 
+			(author) {\insertauthor};
+			
+		% Date:
+		\node[align=left, 
+			  text width=\textwidth, 
+			  anchor=north, 
+			  below=0.0 of author,
+			  font={\usebeamercolor[fg]{date}\usebeamerfont{date}}] 
+			(date) {\insertdate};
+			
+		% Location:
+		\node[text width=\textwidth, 
+			  anchor=south west,
+			  font={\usebeamercolor[fg]{location}\usebeamerfont{location}}] 
+			at (0.0,0.0) {\insertLocation};
+	\end{tikzpicture}
+	}
+	
+	\begin{frame}
+	
+	\end{frame}
+}
+}
+
+
+\newcommand{\insertLastSlide}{
+{
+	% Remove the footline:
+	\setbeamertemplate{footline}{}
+	
+	% Change the background:
+	\setbeamertemplate{background}{
+	\begin{tikzpicture}
+		\useasboundingbox (0,0) rectangle (\the\paperwidth,\the\paperheight);
+		
+		% Background:
+		\fill[color=uclaBlueDark] 
+			(0,0) rectangle (\paperwidth,\paperheight);
+						
+		% Logo:
+		\node[inner sep=6pt, white, draw, very thick, fill=uclaBlue] at (0.25\paperwidth,0.5\paperheight)
+			{\includegraphics[height=1.0cm]{logo-ucla-white}};
+	\end{tikzpicture}
+	}
+	
+	\begin{frame}
+	
+	\end{frame}
+}
+}
+
+
+% TODO:: make a new environment calls "titleframe"
+% It will draw the entire title page and allow things to be placed on top of it. 
+
+\mode<all>

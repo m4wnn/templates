@@ -1,0 +1,44 @@
+% !TEX root = example/example.tex
+
+\RequirePackage[no-math]{fontspec}
+\RequirePackage{iffont}
+
+
+%---------------------------------------------------------------------------------------------------
+% Function to print current font
+%---------------------------------------------------------------------------------------------------
+\makeatletter
+\newcommand{\printcurrentfont}{%
+    \expandafter\format@externalcurrentfont\fontname\font:\@nil
+    }
+\def\format@externalcurrentfont#1:#2\@nil{%
+    {\@ifnextchar"{\@gobble}{}#1}%
+    }
+\makeatother
+
+
+
+%---------------------------------------------------------------------------------------------------
+% Check for font
+%--------------------------------------------------------------------------------------------------
+\iffontsexist{Fira Sans, 
+              Fira Sans Italic, 
+              Fira Sans Bold, 
+              Fira Sans Bold Italic}{%
+    \setsansfont[BoldFont={Fira Sans Bold},
+                 ItalicFont={Fira Sans Italic},
+                 BoldItalicFont={Fira Sans Bold Italic}]%
+                {Fira Sans}
+    \setbeamerfont*{title}{size=\Large, series=\bfseries}
+    \setbeamerfont*{location}{size=\scriptsize}
+    \setbeamerfont*{author}{size=\small}
+    \setbeamerfont*{date}{size=\footnotesize}
+    
+    % Slide font:
+    \setbeamerfont*{frametitle}{size=\Large, series=\bfseries}
+    \setbeamerfont*{framesubtitle}{size=\normalsize, series=\normalfont}
+    \setbeamerfont*{slide number}{size=\tiny}
+}{
+    \PackageWarning{beamerthememeucla}{Fira Sans fonts not found. Using default fonts.}
+    \renewcommand{\printcurrentfont}{default}
+}
