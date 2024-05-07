@@ -35,11 +35,19 @@
 \usepackage{multirow}
 \usepackage{parskip}
 \usepackage{array}
-\usepackage{amsthm} 
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{bbold}
 
-% for the bibliography
-\usepackage[authordate, backend=biber, natbib=true]{biblatex-chicago}
-\addbibresource{bibliography.bib} % Link to your bibliography file
+% Bibliography management.
+\usepackage[
+  sorting=none,
+  minbibnames=8,
+  maxbibnames=9,
+  block=space,
+  backend=biber
+]{biblatex}
+\bibliography{bibliography}
 
 % lorem ipsum generator.
 \usepackage{lipsum}
@@ -50,16 +58,18 @@
 \DeclareMathOperator*{\plim}{plim}
 
 %%%%% Extra Commands %%%%%
-\newcommand{\E}[1]{\mathbb{E}\left[#1\right]}
-\newcommand{\indicator}[1]{\mathbf{1}_{\{#1\}}}
-\newcommand{\prob}[1]{\mathbb{P}\left(#1\right)}
+\newcommand{\E}[1]{\mathbbm{E}\left[#1\right]}
+\newcommand{\indicator}[1]{\boldsymbol{1}_{\{#1\}}}
+\newcommand{\prob}[1]{\mathbbm{P}\left(#1\right)}
+\newcommand{\mse}[1]{\text{MSE}\left(#1\right)}
+\newcommand{\rmse}[1]{\text{RMSE}\left(#1\right)}
 \newcommand{\var}[1]{\text{Var}\left(#1\right)}
 \newcommand{\cov}[1]{\text{Cov}\left(#1\right)}
 \newcommand{\corr}[1]{\text{Corr}\left(#1\right)}
-\newcommand{\convP}{\xrightarrow{\mathbb{P}}}
+\newcommand{\convP}{\xrightarrow{\mathbbm{P}}}
 \newcommand{\Exp}[1]{\exp\left(#1\right)}
-\renewcommand{\Vec}[1]{\mathbf{#1}}
-\newcommand{\Mat}[1]{\mathbb{#1}}
+\renewcommand{\Vec}[1]{\boldsymbol{#1}}
+\newcommand{\Mat}[1]{\mathbbm{#1}}
 \newcommand{\tr}[1]{\text{tr}\left(#1\right)}
 
 
@@ -73,9 +83,15 @@
 \begin{document}
 
 %%%%% Extra Environments %%%%%
+\newtheorem*{theorem*}{Theorem}
 \newtheorem*{claim*}{Claim}
 \newtheorem*{lemma*}{Lemma}
 \newtheorem*{def*}{Definition}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{claim}{Claim}
+\newtheorem{lemma}{Lemma}
+\newtheorem{Def}{Definition}
 
 %%%%% Answer box environment %%%%%
 \newtcolorbox{myanswerbox}[1][]{
@@ -87,6 +103,7 @@
   #1
 }
 
+%%%%% Python code environment %%%%%
 % Style configuration for the code listings.
 \lstdefinestyle{mystyle}{
     commentstyle=\color{codegreen},
