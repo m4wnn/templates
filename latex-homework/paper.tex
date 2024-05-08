@@ -39,15 +39,9 @@
 \usepackage{bbm}
 \usepackage{bbold}
 
-% Bibliography management.
-\usepackage[
-  sorting=none,
-  minbibnames=8,
-  maxbibnames=9,
-  block=space,
-  backend=biber
-]{biblatex}
-\bibliography{bibliography}
+% for the bibliography
+\usepackage[authordate, backend=biber, natbib=true]{biblatex-chicago}
+\addbibresource{bibliography.bib} % Link to your bibliography file
 
 % lorem ipsum generator.
 \usepackage{lipsum}
@@ -138,7 +132,7 @@
 % being displayed (without any \cite commands necessary).
 % remove this command in order to get the "normal" behavior.
 %\nocite{*}
-%\newpage
-%\printbibliography[heading=none]
+\newpage
+\printbibliography[heading=none]
 
 \end{document}
