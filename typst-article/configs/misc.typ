@@ -1,15 +1,4 @@
-#let font-size = (
-  tiny: 6pt,
-  script: 8pt,  // scriptsize
-  footnote: 9pt, // footnotesize
-  small: 10pt,
-  normal: 11pt, // normalsize
-  large: 12pt,
-  Large: 14pt,
-  LARGE: 17pt,
-  huge: 20pt,
-  Huge: 25pt,
-)
+#import "style.typ": font-size
 
 /**
  * join-authors - Join a list of authors (full names, last names, or just
